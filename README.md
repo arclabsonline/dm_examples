@@ -1,6 +1,3 @@
-# dm_examples
-DynaMatrics Code Examples in various languages and libraries
-
 API Endpoints
 
 
@@ -8,8 +5,8 @@ GET    /api/v1/challenge/get_challenge
 
 Returns a Json response:
 {
-    challenge: string representing the challenge table
-    challenge_hash:  SHA-1 hash key referencing the challenge 
+	challenge: string representing the challenge table
+	challenge_hash:  SHA-1 hash key referencing the challenge 
 }
 
 
@@ -19,8 +16,8 @@ Same as get_challenge but it returns a base64 encoded BMP3 image containing the 
 
 Returns a Json response:
 {
-    challenge_image: base64 encoded bmp image
-    challenge_hash:  SHA-1 hash key referencing the challenge 
+	challenge_image: base64 encoded bmp image
+	challenge_hash:  SHA-1 hash key referencing the challenge 
 }
 
 
@@ -32,7 +29,7 @@ username=clientname&challenge_hash=hashedChallengeTable&answer_hash=hashedChalle
 
 Returns a Json response:
 {
-    answer_success: true or false
+	answer_success: true or false
 }
 
 
@@ -46,17 +43,18 @@ Create a new Dynamatric User and send them an invitation email to setup their ac
 
 RESPONSE
 {
-    user: {
-            id: '1',
-            email: 'thisisan@email.com',
-            two_factor: false,
-            confirmed: false,
-            confirmed_at: null,
-            confirmation_email_sent_at: null,
-            reset_rule_sent_at: null,
-            last_sign_in_at: null
-        }
-  }
+        user:  {
+		id: '1',
+		email: 'thisisan@email.com',
+		two_factor: false,
+		confirmed: false,
+		confirmed_at: null,
+		confirmation_email_sent_at: null,
+		reset_rule_sent_at: null,
+		last_sign_in_at: null
+	}
+}
+
 
 
 GET /api/v1/users.json?email=thisisan@email.com
@@ -64,18 +62,18 @@ Find a user by their email address, exact match
 
 RESPONSE
 {
-    users: [ 
-      {
-            id: '1',
-            email: 'thisisan@email.com',
-            two_factor: true,
-            confirmed: true,
-            confirmed_at: "2015-10-07 07:01:28",
-            confirmation_email_sent_at: "2015-06-14 02:57:28",
-            reset_rule_sent_at: "2015-06-14 02:57:28",
-            last_sign_in_at: "2015-06-14 02:57:28"
-        }
-     ]
+        users:  [ 
+          {
+		id: '1',
+		email: 'thisisan@email.com',
+		two_factor: true,
+		confirmed: true,
+		confirmed_at: "2015-10-07 07:01:28",
+		confirmation_email_sent_at: "2015-06-14 02:57:28",
+		reset_rule_sent_at: "2015-06-14 02:57:28",
+		last_sign_in_at: "2015-06-14 02:57:28"
+	  }
+         ]
 }
 
 RESPONSE (user not found)
@@ -86,28 +84,28 @@ Get all Users within your user group
 
 RESPONSE
 {
-    users: [ 
-      {
-            id: '1',
-            email: 'thisisan@email.com',
-            two_factor: true,
-            confirmed: true,
-            confirmed_at: "2015-10-07 07:01:28",
-            confirmation_email_sent_at: "2015-06-14 02:57:28",
-            reset_rule_sent_at: "2015-06-14 02:57:28",
-            last_sign_in_at: "2015-06-14 02:57:28"
-        },
-      {
-            id: '2',
-            email: 'another@email.com',
-            two_factor: false,
-            confirmed: true,
-            confirmed_at: "2015-10-07 07:01:28",
-            confirmation_email_sent_at: "2015-06-14 02:57:28",
-            reset_rule_sent_at: false,
-            last_sign_in_at: "2015-06-14 02:57:28"
-        }   
-    ]
+        users:  [ 
+          {
+		id: '1',
+		email: 'thisisan@email.com',
+		two_factor: true,
+		confirmed: true,
+		confirmed_at: "2015-10-07 07:01:28",
+		confirmation_email_sent_at: "2015-06-14 02:57:28",
+		reset_rule_sent_at: "2015-06-14 02:57:28",
+		last_sign_in_at: "2015-06-14 02:57:28"
+	  },
+          {
+		id: '2',
+		email: 'another@email.com',
+		two_factor: false,
+		confirmed: true,
+		confirmed_at: "2015-10-07 07:01:28",
+		confirmation_email_sent_at: "2015-06-14 02:57:28",
+		reset_rule_sent_at: false,
+		last_sign_in_at: "2015-06-14 02:57:28"
+	  }
+         ]
 
 Syntax
 
