@@ -31,9 +31,14 @@ API Security
 DynaMatrics utilizes a Hash-based message authentication code (HMAC) strategy for signing all requests to our API.   This is the same strategy Amazon uses to authenticate all Amazon Web Service requests (Documentation).  Here’s how it works:
 
 A canonical string is first created using your HTTP headers containing the content-type, content-MD5, request URI and the timestamp. If content-type or content-MD5 are not present, then a blank string is used in their place. If the timestamp isn't present, a valid HTTP date is automatically added to the request. 
+
 The canonical string string is computed as follows:
-canonical_string = 'content-type,content-MD5,request URI,timestamp'
+
+        canonical_string = 'content-type,content-MD5,request URI,timestamp'
+        
 This string is then used to create the signature which is a Base64 encoded SHA1 HMAC, using the client's private secret key.
 This signature is then added as the Authorization HTTP header in the form:
-Authorization = APIAuth 'client access id':'signature from step 2'
+
+        Authorization = APIAuth 'client access id':'signature from step 2'
+        
 On the server side, the SHA1 HMAC is computed in the same way using the request headers and the client's secret key, which is known to only the client and the server but can be looked up on the server using the client's access id that was attached in the header.  The signed request expires after 15 minutes in order to avoid replay attacks.
