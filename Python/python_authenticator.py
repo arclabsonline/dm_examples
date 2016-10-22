@@ -8,10 +8,8 @@ import requests
 import urllib
 import json
 
-private_key = "DsC2GORnPUNriZXMvceHwgtt"
-
-public_key = "TQ28Pz95YgHbTRNQXrfghwtt"
-
+private_key = "YOUR_KEY"
+public_key = "YOUR_KEY"
 dyna_host = "https://www.dynamatrics.com"
 
 def get_challenge (email):
