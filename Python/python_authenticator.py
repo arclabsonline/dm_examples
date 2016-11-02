@@ -62,7 +62,7 @@ print "you entered", email
 #get a challenge for this user
 response_object = json.loads(get_challenge(email).text)
 #print out the whole response for fun
-print response_object
+# print response_object
 #Print out the challenge to console
 print response_object['challenge']
 
@@ -70,4 +70,4 @@ answer = raw_input("Answer the challenge: ")
 print "you entered", answer
 
 answer_response_object = answer_challenge(email, answer)
-print answer_response_object
+print answer_response_object.content
